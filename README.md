@@ -1,8 +1,10 @@
 # pyvolleydata
 
-Extract and analyze volleyball data from set volleyball leagues.
+**`pyvolleydata`** is a python package for working with volleyball data.
 
 ## Installation
+
+You can install **`pyvolleydata`** with:
 
 ```bash
 $ pip install pyvolleydata
@@ -10,7 +12,7 @@ $ pip install pyvolleydata
 
 ## Usage
 
-- TODO
+
 
 ## Contributing
 
