@@ -2,9 +2,9 @@ import pandas as pd
 from datetime import datetime
 
 
-def validate_pvf_seasons(seasons):
+def validate_seasons(seasons, valid_start_year):
     """
-    Checks whether all the provided seasons are valid years for pvf and raises an error if not.
+    Checks whether all the provided seasons are valid years and raises an error if not.
 
     Parameters
     ----------
@@ -17,14 +17,14 @@ def validate_pvf_seasons(seasons):
 
     Examples
     --------
-    >>> validate_seasons([2024, 2025])
-    >>> validate_seasons(["2020"])  # Raises TypeError
-    >>> validate_seasons([2022, 2023, 2030])  # Raises ValueError
+    >>> validate_seasons([2024, 2025], 2024)
+    >>> validate_seasons(["2020"], 2024)  # Raises TypeError
+    >>> validate_seasons([2022, 2023, 2030], 2024)  # Raises ValueError
     """
     if not isinstance(seasons, list):
         raise TypeError("Expected a list of years")
     for year in seasons:
         if not isinstance(year, int):
             raise TypeError(f"Expected an integer for year, got {type(year).__name__}")
-        if year < 2024 or year > datetime.now().year:
-            raise ValueError(f"Year {year} out of valid range (2019-{datetime.now().year})")
+        if year < valid_start_year or year > datetime.now().year:
+            raise ValueError(f"Year {year} out of valid range ({valid_start_year}-{datetime.now().year})")

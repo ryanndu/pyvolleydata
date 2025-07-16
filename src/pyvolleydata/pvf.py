@@ -45,7 +45,7 @@ def load_pvf_officials(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons)
+        h.validate_seasons(seasons, 2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
@@ -104,7 +104,7 @@ def load_pvf_points_log(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons)
+        h.validate_seasons(seasons, 2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
@@ -173,7 +173,7 @@ def load_pvf_pbp(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons)
+        h.validate_seasons(seasons, 2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
@@ -246,7 +246,7 @@ def load_pvf_player_boxscore(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons)
+        h.validate_seasons(seasons, 2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
@@ -299,7 +299,7 @@ def load_pvf_team_staff(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons)
+        h.validate_seasons(seasons, 2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
