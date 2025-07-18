@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 
 
-def validate_seasons(seasons, valid_start_year):
+def validate_seasons(seasons, league_start_year):
     """
     Checks whether all the provided seasons are valid years and raises an error if not.
 
@@ -26,5 +26,5 @@ def validate_seasons(seasons, valid_start_year):
     for year in seasons:
         if not isinstance(year, int):
             raise TypeError(f"Expected an integer for year, got {type(year).__name__}")
-        if year < valid_start_year or year > datetime.now().year:
-            raise ValueError(f"Year {year} out of valid range ({valid_start_year}-{datetime.now().year})")
+        if year < league_start_year or year > datetime.now().year:
+            raise ValueError(f"Year {year} out of valid range ({league_start_year}-{datetime.now().year})")
