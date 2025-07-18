@@ -45,13 +45,13 @@ def load_pvf_officials(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons, 2024)
+        h.validate_seasons(seasons, league_start_year=2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    officials = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/officials/pvf_officials.csv")
+    officials = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/pvf-officials/pvf_officials.csv")
     officials = officials[officials['season'].isin(seasons)]
     return officials
 
@@ -104,13 +104,13 @@ def load_pvf_points_log(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons, 2024)
+        h.validate_seasons(seasons, league_start_year=2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    points_log = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/points_log/pvf_points_log.csv")
+    points_log = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/pvf-points-log/pvf_points_log.csv")
     points_log = points_log[points_log['season'].isin(seasons)]
     return points_log
 
@@ -159,8 +159,11 @@ def load_pvf_pbp(seasons = None):
         player_in_jersey_number            int
         player_out_jersey_number           int
         challenge_reason                   string
-        current_home_score                 int
-        current_away_score                 int
+        challenge_method                   string
+        challenge_response                 string
+        challenge_result                   string
+        home_score_after_challenge         int
+        away_score_after_challenge         int
         ================================  ===========
     
     Examples
@@ -173,13 +176,13 @@ def load_pvf_pbp(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons, 2024)
+        h.validate_seasons(seasons, league_start_year=2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    pbp = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/pbp/pvf_pbp.csv")
+    pbp = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/pvf-pbp/pvf_pbp.csv")
     pbp = pbp[pbp['season'].isin(seasons)]
     return pbp
 
@@ -246,13 +249,13 @@ def load_pvf_player_boxscore(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons, 2024)
+        h.validate_seasons(seasons, league_start_year=2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    player_boxscore = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/player-boxscore/pvf_player_boxscore.csv")
+    player_boxscore = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/pvf-player-boxscore/pvf_player_boxscore.csv")
     player_boxscore = player_boxscore[player_boxscore['season'].isin(seasons)]
     return player_boxscore
 
@@ -299,12 +302,12 @@ def load_pvf_team_staff(seasons = None):
     if isinstance(seasons, int):
         seasons = [seasons]
     if isinstance(seasons, list):
-        h.validate_seasons(seasons, 2024)
+        h.validate_seasons(seasons, league_start_year=2024)
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    team_staff = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/team-staff/pvf_team_staff.csv")
+    team_staff = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/pvf-team-staff/pvf_team_staff.csv")
     team_staff = team_staff[team_staff['season'].isin(seasons)]
     return team_staff

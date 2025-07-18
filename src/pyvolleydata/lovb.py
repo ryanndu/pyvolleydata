@@ -51,7 +51,7 @@ def load_lovb_officials(seasons = None):
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    officials = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/officials/lovb_officials.csv")
+    officials = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/lovb-officials/lovb_officials.csv")
     officials = officials[officials['season'].isin(seasons)]
     return officials
 
@@ -110,7 +110,7 @@ def load_lovb_points_log(seasons = None):
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    points_log = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/points_log/lovb_points_log.csv")
+    points_log = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/lovb-points-log/lovb_points_log.csv")
     points_log = points_log[points_log['season'].isin(seasons)]
     return points_log
 
@@ -179,7 +179,7 @@ def load_lovb_pbp(seasons = None):
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    pbp = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/pbp/lovb_pbp.csv")
+    pbp = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/lovb-pbp/lovb_pbp.csv")
     pbp = pbp[pbp['season'].isin(seasons)]
     return pbp
 
@@ -252,7 +252,7 @@ def load_lovb_player_boxscore(seasons = None):
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    player_boxscore = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/player-boxscore/lovb_player_boxscore.csv")
+    player_boxscore = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/lovb-player-boxscore/lovb_player_boxscore.csv")
     player_boxscore = player_boxscore[player_boxscore['season'].isin(seasons)]
     return player_boxscore
 
@@ -305,6 +305,6 @@ def load_lovb_team_staff(seasons = None):
     else:
         raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
     
-    team_staff = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/team-staff/lovb_team_staff.csv")
+    team_staff = pd.read_csv("https://github.com/awosoga/volleydata/releases/download/lovb-team-staff/lovb_team_staff.csv")
     team_staff = team_staff[team_staff['season'].isin(seasons)]
     return team_staff
