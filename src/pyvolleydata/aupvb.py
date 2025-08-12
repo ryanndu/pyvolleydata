@@ -83,8 +83,8 @@ def load_aupvb_player_info(seasons=None):
     Examples
     --------
     >>> load_aupvb_player_info(2024)
-    >>> load_aupvb_officials([2022, 2024])
-    >>> load_aupvb_officials()
+    >>> load_aupvb_player_info([2022, 2024])
+    >>> load_aupvb_player_info()
     """
 
     if isinstance(seasons, int):
