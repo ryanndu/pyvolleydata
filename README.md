@@ -4,13 +4,16 @@
 
 ## Overview
 
-**[pyvolleydata](https://github.com/ryanndu/ceblpy)** is a Python package designed for accessing and working with data from the Pro Volleyball Federation (PVF) league and the League One Volleyball (LOVB) league.
+**[pyvolleydata](https://github.com/ryanndu/ceblpy)** is a Python package to access, process, and analyze volleyball data from multiple proffesional leagues, including:
+- **Major League Volleyball (MLV)**
+- **League One Volleyball (LOVB)**
+- **Athlete Unlimited Pro Volleyball (AUPVB)**
 
 ---
 
 ## Installation
 
-You can install **[pyvolleydata](https://github.com/ryanndu/ceblpy)** package with:
+Install the latest release of the **[pyvolleydata](https://github.com/ryanndu/ceblpy)** package with:
 
 ```bash
 $ pip install pyvolleydata
@@ -18,29 +21,27 @@ $ pip install pyvolleydata
 
 ---
 
-## Usage
+## Quick Start
 
-To retrieve the PVF points_log for a given season (e.g, 2024), use the load_pvf_points_log() function:
+To retrieve the MLV player boxscore data for a given season (e.g, 2024), use the load_mlv_player_boxscore() function:
 
 ```
-from pyvolleydata.pvf import load_pvf_points_log
+from pyvolleydata.mlv import load_pvf_player_boxscore()
 
-# Load the 2024 PVF season points log
-points_log = load_pvf_points_log(2024)
+# Load the 2024 MLV season player boxscore
+player_boxscore = load_mlv_player_boxscore(2024)
 
 # Preview the data
-print(points_log.head())
+print(player_boxscore.head())
 ```
 
 ---
 
 ## Contributing
 
-Found a bug? Have an idea to make pyvolleydata better? We'd love to hear from you!
+Contributions are welcome!
 - **Open an issue** on our **[GitHub Issues](https://github.com/ryanndu/pyvolleydata/issues)** page
 - **Email Me** directly at **[ryandu343@gmail.com](mailto:ryandu343@gmail.com)**
-
-All suggestions and contributions are welcome!
 
 ---
 
