@@ -163,8 +163,8 @@ def load_lovb_player_boxscore(seasons = None):
     
     Examples
     --------
-    >>> load_lovb_pbp(2025)
-    >>> load_lovb_pbp()
+    >>> load_lovb_player_boxscore(2025)
+    >>> load_lovb_player_boxscore()
     """
 
     if isinstance(seasons, int):
@@ -273,8 +273,8 @@ def load_lovb_pbp(seasons = None):
     
     Examples
     --------
-    >>> load_lovb_points_log(2025)
-    >>> load_lovb_points_log()
+    >>> load_lovb_pbp(2025)
+    >>> load_lovb_pbp()
     """
 
     if isinstance(seasons, int):
