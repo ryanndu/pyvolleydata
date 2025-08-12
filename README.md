@@ -1,4 +1,4 @@
-# pyvolleydata <img src="https://github.com/ryanndu/pyvolleydata/raw/main/assets/images/pyvolleydata-logo.png" align="right" width="100" height="100"/>
+# pyvolleydata <img src="https://github.com/ryanndu/pyvolleydata/raw/main/assets/images/pyvolleydata-logo.png" align="right" width="150" height="150"/>
 
 --- 
 
