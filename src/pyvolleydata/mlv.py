@@ -288,7 +288,7 @@ def load_mlv_pbp(seasons = None):
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
-        raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
+        raise TypeError(f'Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}')
     
     pbp = pd.DataFrame()
     for season in seasons:
@@ -385,7 +385,7 @@ def load_mlv_events_log(seasons = None):
     elif seasons is None:
         seasons = list(range(2024, datetime.now().year + 1))
     else:
-        raise TypeError(f"Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}")
+        raise TypeError(f'Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}')
     
     events_log = pd.DataFrame()
     for season in seasons:
