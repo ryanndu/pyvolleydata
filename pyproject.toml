@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyvolleydata"
-version = "0.1.0"
+version = "0.1.1"
 description = "Extract and analyze volleyball data from the pvf and lovb volleyball leagues."
 authors = ["Ryan Du"]
 license = "MIT"
@@ -20,3 +20,6 @@ furo = "^2024.8.6"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+"Documentation" = "https://pyvolleydata.readthedocs.io/en/latest/index.html"

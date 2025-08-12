@@ -4,7 +4,7 @@
 
 ## Overview
 
-**[pyvolleydata](https://github.com/ryanndu/ceblpy)** is a Python package to access, process, and analyze volleyball data from multiple proffesional leagues, including:
+**[pyvolleydata](https://github.com/ryanndu/pyvolleydata)** is a Python package to access, process, and analyze volleyball data from multiple proffesional leagues, including:
 - **Major League Volleyball (MLV)**
 - **League One Volleyball (LOVB)**
 - **Athlete Unlimited Pro Volleyball (AUPVB)**
@@ -13,7 +13,7 @@
 
 ## Installation
 
-Install the latest release of the **[pyvolleydata](https://github.com/ryanndu/ceblpy)** package with:
+Install the latest release of the **[pyvolleydata](https://github.com/ryanndu/pyvolleydata)** package with:
 
 ```bash
 $ pip install pyvolleydata
