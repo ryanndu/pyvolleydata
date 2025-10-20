@@ -110,9 +110,9 @@ def load_mlv_officials(seasons = None):
     return officials
 
 
-def load_mlv_player_boxscore(seasons = None):
+def load_mlv_player_info(seasons = None):
     """
-    Load cleaned mlv player boxscore data from the volleydata repository.
+    Load cleaned mlv player info data from the volleydata repository.
 
     Parameters
     ----------
@@ -164,9 +164,9 @@ def load_mlv_player_boxscore(seasons = None):
     
     Examples
     --------
-    >>> load_mlv_player_boxscore(2025)
-    >>> load_mlv_player_boxscore([2024, 2025])
-    >>> load_mlv_player_boxscore()
+    >>> load_mlv_player_info(2025)
+    >>> load_mlv_player_info([2024, 2025])
+    >>> load_mlv_player_info()
     """
 
     if isinstance(seasons, int):
@@ -178,9 +178,9 @@ def load_mlv_player_boxscore(seasons = None):
     else:
         raise TypeError(f'Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}')
     
-    player_boxscore = pd.read_csv('https://github.com/awosoga/volleydata/releases/download/pvf-player-boxscore/pvf_player_boxscore.csv')
-    player_boxscore = player_boxscore[player_boxscore['season'].isin(seasons)]
-    return player_boxscore
+    player_info = pd.read_csv('https://github.com/awosoga/volleydata/releases/download/pvf-player-info/pvf_player_info.csv')
+    player_info = player_info[player_info['season'].isin(seasons)]
+    return player_info
 
 
 def load_mlv_team_staff(seasons = None):
@@ -391,3 +391,157 @@ def load_mlv_events_log(seasons = None):
     for season in seasons:
         events_log = pd.concat([events_log, pd.read_csv(f'https://github.com/awosoga/volleydata/releases/download/pvf-events-log/pvf_events_log_{season}.csv')])
     return events_log
+
+
+def load_mlv_player_boxscore(seasons = None):
+    """
+    Load cleaned mlv player boxscore data from the volleydata repository.
+
+    Parameters
+    ----------
+    seasons : int, list of int, or None, optional
+        Season(s) to load. By default, None loads all available seasons.
+        - int : Single season year (e.g., 2025)
+        - list of int : Multiple seasons (e.g., [2024, 2025])
+        - None : Load all available seasons
+
+        All years must be 2024 or later.
+
+    Returns
+    -------
+    pandas.DataFrame
+        A DataFrame containing the schedule with the following columns:
+
+        ================================  ===========
+        Column Name                        Type
+        ================================  ===========
+        match_id                           int
+        season                             int
+        match_datetime                     string
+        team_involved                      string
+        team_name                          string
+        player_name                        string
+        first_name                         string
+        last_name                          string
+        sets_played                        int
+        player_number                      int
+        is_captain                         bool
+        is_libero                          bool
+        set_number                         int
+        set_starting_position              int
+        serves                             int
+        serve_errors                       int
+        serve_aces                         int
+        serve_efficiency                   float
+        attack_attempts                    int
+        attack_errors                      int
+        attack_kills                       int
+        attack_success_ratio               float
+        attack_efficiency                  float
+        receptions                         int
+        reception_errors                   int
+        positive_reception_ratio           float
+        perfect_reception_ratio            float
+        block_points                       int
+        block_touches                      int
+        earned_points                      int
+        net_points                         int
+        assists                            int
+        successful_digs                    int
+        id                                 str
+        spike_hp                           int
+        points                             int             
+        ================================  ===========
+    
+    Examples
+    --------
+    >>> load_mlv_player_boxscore(2025)
+    >>> load_mlv_player_boxscore([2024, 2025])
+    >>> load_mlv_player_boxscore()
+    """
+
+    if isinstance(seasons, int):
+        seasons = [seasons]
+    if isinstance(seasons, list):
+        h.validate_seasons(seasons, league_start_year=2024)
+    elif seasons is None:
+        seasons = list(range(2024, datetime.now().year + 1))
+    else:
+        raise TypeError(f'Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}')
+    
+    player_boxscore = pd.read_csv('https://github.com/awosoga/volleydata/releases/download/pvf-player-boxscore/pvf_player_boxscore.csv')
+    player_boxscore = player_boxscore[player_boxscore['season'].isin(seasons)]
+    return player_boxscore
+
+
+def load_mlv_team_boxscore(seasons = None):
+    """
+    Load cleaned mlv team boxscore data from the volleydata repository.
+
+    Parameters
+    ----------
+    seasons : int, list of int, or None, optional
+        Season(s) to load. By default, None loads all available seasons.
+        - int : Single season year (e.g., 2025)
+        - list of int : Multiple seasons (e.g., [2024, 2025])
+        - None : Load all available seasons
+
+        All years must be 2024 or later.
+
+    Returns
+    -------
+    pandas.DataFrame
+        A DataFrame containing the schedule with the following columns:
+
+        ================================  ===========
+        Column Name                        Type
+        ================================  ===========
+        match_id                           int
+        season                             int
+        match_datetime                     string
+        team_involved                      string
+        team_name                          string
+        set_number                         int
+        serves                             int
+        serve_errors                       int
+        serve_aces                         int
+        serve_efficiency                   float
+        attack_attempts                    int
+        attack_errors                      int
+        attack_kills                       int
+        attack_success_ratio               float
+        attack_efficiency                  float
+        receptions                         int
+        reception_errors                   int
+        positive_reception_ratio           float
+        perfect_reception_ratio            float
+        block_points                       int
+        block_touches                      int
+        earned_points                      int
+        net_points                         int
+        assists                            int
+        successful_digs                    int
+        id                                 str
+        spike_hp                           int
+        points                             int             
+        ================================  ===========
+    
+    Examples
+    --------
+    >>> load_mlv_team_boxscore(2025)
+    >>> load_mlv_team_boxscore([2024, 2025])
+    >>> load_mlv_team_boxscore()
+    """
+
+    if isinstance(seasons, int):
+        seasons = [seasons]
+    if isinstance(seasons, list):
+        h.validate_seasons(seasons, league_start_year=2024)
+    elif seasons is None:
+        seasons = list(range(2024, datetime.now().year + 1))
+    else:
+        raise TypeError(f'Expected seasons to be an int, list of ints, or None, got {type(seasons).__name__}')
+    
+    team_boxscore = pd.read_csv('https://github.com/awosoga/volleydata/releases/download/pvf-team-boxscore/pvf_team_boxscore.csv')
+    team_boxscore = team_boxscore[team_boxscore['season'].isin(seasons)]
+    return team_boxscore
