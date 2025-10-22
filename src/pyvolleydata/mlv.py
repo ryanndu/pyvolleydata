@@ -428,7 +428,7 @@ def load_mlv_player_boxscore(seasons = None):
         is_captain                         bool
         is_libero                          bool
         set_number                         int
-        set_starting_position              int
+        set_starting_position              string
         serves                             int
         serve_errors                       int
         serve_aces                         int
