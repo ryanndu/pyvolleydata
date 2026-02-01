@@ -4,6 +4,8 @@
 
 ## Overview
 
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/pyvolleydata?period=total&units=NONE&left_color=BLACK&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/pyvolleydata)
+
 **[pyvolleydata](https://github.com/ryanndu/pyvolleydata)** is a Python package to access, process, and analyze volleyball data from multiple professional leagues, including:
 - **Major League Volleyball (MLV)**
 - **League One Volleyball (LOVB)**
