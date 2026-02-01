@@ -6,16 +6,23 @@
 
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/pyvolleydata?period=total&units=NONE&left_color=BLACK&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/pyvolleydata)
 
-**[pyvolleydata](https://github.com/ryanndu/pyvolleydata)** is a Python package to access, process, and analyze volleyball data from multiple professional leagues, including:
+**[pyvolleydata](https://github.com/ryanndu/pyvolleydata)** is a comprehensive Python package designed for sports analytics. It can be used to access, process, and analyze professional volleyball data.
+
+Currently supports:
 - **Major League Volleyball (MLV)**
 - **League One Volleyball (LOVB)**
 - **Athlete Unlimited Pro Volleyball (AUPVB)**
+
+## Key Features
+- **Boxscore Retrieval:** Access detailed player and team statistics for any given season.
+- **Play-by-Play Data:** Granular event data for deep-dive analysis.
+- **League Agnostic:** Unified API structure across different professional leagues.
 
 ---
 
 ## Installation
 
-Install the latest release of the **[pyvolleydata](https://github.com/ryanndu/pyvolleydata)** package with:
+Install the latest release via pip:
 
 ```bash
 $ pip install pyvolleydata
@@ -25,13 +32,13 @@ $ pip install pyvolleydata
 
 ## Quick Start
 
-To retrieve the MLV player boxscore data for a given season (e.g, 2024), use the load_mlv_player_boxscore() function:
+Get started by retrieving the player boxscore data for the 2024 MLV season:
 
 ```
-from pyvolleydata.mlv import load_pvf_player_boxscore()
+from pyvolleydata.get_data import load_player_boxscore()
 
 # Load the 2024 MLV season player boxscore
-player_boxscore = load_mlv_player_boxscore(2024)
+player_boxscore = load_player_boxscore("mlv", 2024)
 
 # Preview the data
 print(player_boxscore.head())
