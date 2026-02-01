@@ -39,20 +39,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Semantic Release
-        id: release
-        uses: python-semantic-release/python-semantic-release@v8.3.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Publish to PyPI
         if: steps.release.outputs.released == 'true'
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
-
-      - name: Publish GitHub Release
-        if: steps.release.outputs.released == 'true'
-        uses: python-semantic-release/upload-to-gh-release@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
