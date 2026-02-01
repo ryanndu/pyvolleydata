@@ -13,11 +13,6 @@ Currently supports:
 - **League One Volleyball (LOVB)**
 - **Athlete Unlimited Pro Volleyball (AUPVB)**
 
-## Key Features
-- **Boxscore Retrieval:** Access detailed player and team statistics for any given season.
-- **Play-by-Play Data:** Granular event data for deep-dive analysis.
-- **League Agnostic:** Unified API structure across different professional leagues.
-
 ---
 
 ## Installation
