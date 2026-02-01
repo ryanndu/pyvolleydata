@@ -469,5 +469,5 @@ def load_team_boxscore(league = None, seasons = None):
     >>> load_team_boxscore('mlv', [2024, 2025])
     >>> load_team_boxscore('au')
     """
-    team_boxscore = h.get_data(league, seasons, 'team_box_score')
+    team_boxscore = h.get_data(league, seasons, 'team_boxscore')
     return team_boxscore

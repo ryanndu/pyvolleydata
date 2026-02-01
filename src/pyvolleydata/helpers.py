@@ -25,7 +25,6 @@ def get_data(league, seasons, data_type):
         if data_type in {'pbp', 'events_log'}:
             for season in seasons:
                 file_path = f"{league_internal_name}-{data_type.replace("_", "-")}/{league_internal_name}_{data_type}_{season}.csv"
-                print(f"{base_url}/{file_path}")
                 df = pd.concat([df, pd.read_csv(f"{base_url}/{file_path}")])
         else:
             file_path = f"{league_internal_name}-{data_type.replace("_", "-")}/{league_internal_name}_{data_type}.csv"
