@@ -3,6 +3,34 @@ from datetime import datetime
 
 
 def get_data(league, seasons, data_type):
+    """
+    Loads data for a specified league and season(s) from the volleydata repository.
+
+    Parameters
+    ----------
+    league : str
+        A string specifying which of 'mlv', 'pvf', or 'au' to load data for.
+
+    data_type : str
+        The type of data to fetch (e.g., 'pbp', 'events_log')
+        
+    seasons : int, list of int, or None, optional
+        Season(s) to load. By default, None loads all available seasons.
+        - int : Single season year (e.g., 2025)
+        - list of int : Multiple seasons (e.g., [2024, 2025])
+        - None : Load all available seasons
+
+    Returns
+    -------
+    pd.DataFrame
+        A DataFrame containing the merged or filtered data with an additional 'league' column.
+
+    Examples
+    --------
+    >>> fetch_data(league='mlv', data_type='pbp', seasons=2024)
+    >>> fetch_data(league='au', data_type='rosters', seasons=[2022, 2023])
+    >>> fetch_data(league='lovb', data_type='events_log')
+    """
     league_config = {
         'mlv': {'start_year': 2024, 'internal_name': 'pvf'},
         'lovb': {'start_year': 2025, 'internal_name': 'lovb'},
@@ -44,6 +72,9 @@ def validate_seasons(seasons, league_start_year):
     ----------
     seasons: list of int
         A list of years representing seasons to validate.
+
+    league_start_year: int
+        The starting year to determine if the seasons are within range.
 
     Returns
     -------

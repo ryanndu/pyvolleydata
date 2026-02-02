@@ -416,13 +416,14 @@ def load_team_boxscore(league = None, seasons = None):
 
     Parameters
     ----------
+    league : str
+        A string specifying which of 'mlv', 'pvf', or 'au' to load data for.
+
     seasons : int, list of int, or None, optional
         Season(s) to load. By default, None loads all available seasons.
         - int : Single season year (e.g., 2025)
         - list of int : Multiple seasons (e.g., [2024, 2025])
         - None : Load all available seasons
-
-        All years must be 2024 or later.
 
     Returns
     -------
