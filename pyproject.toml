@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pyvolleydata"
 version = "1.0.1"
-description = "Extract and analyze volleyball data from the pvf and lovb volleyball leagues."
+description = "Extract and analyze proffesional volleyball data for 'MLV', 'PVF', and 'AUPVB'"
 authors = ["Ryan Du"]
 license = "MIT"
 readme = "README.md"
