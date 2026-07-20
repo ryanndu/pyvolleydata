@@ -11,7 +11,7 @@
 Currently supports:
 - **Major League Volleyball (MLV)**
 - **League One Volleyball (LOVB)**
-- **Athlete Unlimited Pro Volleyball (AUPVB)**
+- **Athlete Unlimited Pro Volleyball (AU)**
 
 ---
 
@@ -59,4 +59,4 @@ Contributions are welcome!
 
 `pyvolleydata` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
 
-A big thanks to [Rebecca Lai](https://www.rebeccalai.net) for the awesome logo design!
+A big thanks to [Rebecca Lai](https://rebeccalai.net) for the awesome logo design!
