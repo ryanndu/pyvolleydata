@@ -13,6 +13,9 @@ Currently supports:
 - **League One Volleyball (LOVB)**
 - **Athlete Unlimited Pro Volleyball (AU)**
 
+For those who prefer to program in R, [rvolleydata](https://awosoga.github.io/rvolleydata/) has complete function parity with this package.
+
+
 ---
 
 ## Installation
