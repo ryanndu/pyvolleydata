@@ -29,7 +29,7 @@ def _load(league: str, dataset: str, seasons: int | list[int] | None) -> pd.Data
         ConnectionError: If the data couldn't be downloaded.
     """
     league = _validate_league(league)
-    seasons = _validate_seasons(seasons)
+    seasons = _validate_seasons(league, seasons)
 
     asset = f"{league}_{dataset.replace('-', '_')}.parquet"
     url = f"https://github.com/awosoga/volleydata/releases/download/{dataset}/{asset}"
