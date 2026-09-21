@@ -22,7 +22,7 @@ print(
             "home_team_set_wins",
             "away_team_name",
             "away_team_set_wins",
-            "game_type"
+            "game_type",
         ]
     ].to_markdown(index=False)
 )
@@ -40,9 +40,7 @@ sets = pyvolleydata.load_sets("mlv", 2026)
 final = sets[sets["match_id"] == "2464512"]
 
 print(
-    final.pivot_table(
-        index="set_number", columns="team_name", values="points_scored"
-    ).to_markdown()
+    final.pivot_table(index="set_number", columns="team_name", values="points_scored").to_markdown()
 )
 ```
 
@@ -101,9 +99,7 @@ pbp = pyvolleydata.load_pbp("mlv", 2026)
 final = pbp[pbp["match_id"] == "2464512"]
 
 print(
-    final[
-        ["set_number", "rally_number", "play_number", "team_side", "skill", "effect_code"]
-    ]
+    final[["set_number", "rally_number", "play_number", "team_side", "skill", "effect_code"]]
     .head(8)
     .to_markdown(index=False)
 )
@@ -120,12 +116,7 @@ final = pbp[pbp["match_id"] == "2464512"]
 
 attacks = final[final["skill"] == "attack"]
 
-print(
-    attacks.groupby("team_side")["effect_code"]
-    .value_counts()
-    .unstack(fill_value=0)
-    .to_markdown()
-)
+print(attacks.groupby("team_side")["effect_code"].value_counts().unstack(fill_value=0).to_markdown())
 ```
 
 ## How the fifth set went
