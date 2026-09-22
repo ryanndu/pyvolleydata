@@ -1,65 +1,63 @@
-# pyvolleydata <img src="https://github.com/ryanndu/pyvolleydata/raw/main/assets/images/pyvolleydata-logo.svg" align="right" width="150" height="150"/>
-
---- 
-
-## Overview
+# pyvolleydata <img src="https://github.com/ryanndu/pyvolleydata/raw/main/assets/images/pyvolleydata-logo.svg" align="right" width="100" height="100"/>
 
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/pyvolleydata?period=total&units=NONE&left_color=BLACK&right_color=BLUE&left_text=downloads)](https://pepy.tech/projects/pyvolleydata)
 
-**[pyvolleydata](https://github.com/ryanndu/pyvolleydata)** is a comprehensive Python package designed for sports analytics. It can be used to access, process, and analyze professional volleyball data.
+The goal of this package is to help people access clean and tidy data from
+professional volleyball. It provides a set of loaders that return schedules,
+box scores, play-by-play, rosters and match events as pandas DataFrames, ready
+to analyze.
 
-Currently supports:
-- **Major League Volleyball (MLV)**
-- **League One Volleyball (LOVB)**
-- **Athlete Unlimited Pro Volleyball (AU)**
+Three leagues are covered:
 
-For those who prefer to program in R, [rvolleydata](https://awosoga.github.io/rvolleydata/) has complete function parity with this package.
-
-
----
+| League | Code | Seasons |
+| --- | --- | --- |
+| Major League Volleyball | `mlv` | 2024 onwards |
+| League One Volleyball | `lovb` | 2025 onwards |
+| Athletes Unlimited Pro Volleyball | `aupvb` | 2021 to 2025 |
 
 ## Installation
 
-Install the latest release via pip:
-
 ```bash
-$ pip install pyvolleydata
+pip install pyvolleydata
 ```
 
----
+## Usage
 
-## Quick Start
+Every loader takes a league, plus a season, a list of seasons, or nothing at
+all for every season available.
 
-Get started by retrieving the player boxscore data for the 2024 MLV season:
+```python exec="true" source="above"
+import pyvolleydata
 
+schedule = pyvolleydata.load_schedule("mlv", 2026)
+
+print(
+    schedule[
+        [
+            "start_time_utc",
+            "home_team_name",
+            "home_team_set_wins",
+            "away_team_name",
+            "away_team_set_wins",
+        ]
+    ]
+    .head()
+    .to_markdown(index=False)
+)
 ```
-from pyvolleydata.get_data import load_player_boxscore()
 
-# Load the 2024 MLV season player boxscore
-player_boxscore = load_player_boxscore("mlv", 2024)
+Every loader takes a league, and a season, list of seasons, or nothing for 
+every season available.
 
-# Preview the data
-print(player_boxscore.head())
+```python
+pyvolleydata.load_player_boxscore("lovb", 2026)
+pyvolleydata.load_pbp("mlv", [2025, 2026])
+pyvolleydata.load_team_boxscore("aupvb")
 ```
 
----
+Data is sourced from [volleydata](https://github.com/awosoga/volleydata),
+which updates daily during the season.
 
-## Contributing
-
-Contributions are welcome!
-- **Open an issue** on our **[GitHub Issues](https://github.com/ryanndu/pyvolleydata/issues)** page
-- **Email Me** directly at **[ryandu343@gmail.com](mailto:ryandu343@gmail.com)**
-
----
-
-## License
-
-`pyvolleydata` was created by Ryan Du and David Awosoga. It is licensed under the terms of the MIT license.
-
----
-
-## Credits
-
-`pyvolleydata` was created with [`cookiecutter`](https://cookiecutter.readthedocs.io/en/latest/) and the `py-pkgs-cookiecutter` [template](https://github.com/py-pkgs/py-pkgs-cookiecutter).
-
-A big thanks to [Rebecca Lai](https://rebeccalai.net) for the awesome logo design!
+For those who prefer to program in R,
+[rvolleydata](https://awosoga.github.io/rvolleydata/) has complete function
+parity with this package.
