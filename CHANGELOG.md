@@ -1,33 +1,51 @@
 # Changelog
 
-<!--next-version-placeholder-->
+## v2.0.0 (2026-09-21)
 
-## v0.1.0 (2025-07-15)
+A rebuild against the new volleydata release, which republished every dataset
+with new columns, explicit nullable dtypes, and parquet in place of CSV. Code
+written against v1 will need updating, the notes below cover what changed.
 
-- Initial release of `pyvolleydata`!
+### Changes
 
-
-## v0.1.1 (2025-08-12)
-
-- Fixed minor typos across documentation
-- Added new documentation
-
-
-## v0.1.2 (2025-10-20)
-
-- Refactored `player_boxscore` -> `player_info`
-- Added new `player_boxscore` and `team_boxscore` functions
-
-
-## v0.1.3 (2025-10-22)
-
-- Update `player_boxscore` to correctly display substitutions in the `set_starting_position` column
-
-
-## v1.0.0 (2026-01-31)
-
-- Made the functions compatible for all leagues and now data is accessed by specifying a league parameter.
+- League codes are `mlv`, `lovb` and `aupvb`.
+- Import the loaders from the package itself, as
+  `from pyvolleydata import load_schedule`. The `pyvolleydata.get_data` module
+  has been removed.
+- Every dataset's columns have been renamed or restructured to match the new
+  release. The [data dictionary](https://ryanndu.github.io/pyvolleydata/data-dictionary/)
+  lists every column in every dataset.
+- `load_sets`, for the ninth dataset: one row per team per set, with the six
+  starting court positions, points scored, who served first, and the set's
+  start and end times.
+- The documentation has moved to
+  [ryanndu.github.io/pyvolleydata](https://ryanndu.github.io/pyvolleydata/).
+- Data is read as parquet, so `pyarrow` is now a dependency.
 
 ## v1.0.1 (2026-02-01)
 
-- Fixed a bug with team boxscore
+- Fixed a bug in `load_team_boxscore`.
+
+## v1.0.0 (2026-01-31)
+
+- Every loader now covers all supported leagues, selected with a `league`
+  argument.
+
+## v0.1.3 (2025-10-22)
+
+- `load_player_boxscore` now shows substitutions correctly in the
+  `set_starting_position` column.
+
+## v0.1.2 (2025-10-20)
+
+- Renamed the old `player_boxscore` dataset to `player_info`.
+- Added new `load_player_boxscore` and `load_team_boxscore` functions.
+
+## v0.1.1 (2025-08-12)
+
+- Fixed typos across the documentation.
+- Expanded the documentation.
+
+## v0.1.0 (2025-07-15)
+
+- Initial release.
